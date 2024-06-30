@@ -5,12 +5,6 @@
         "src": "./index.js/",
         "use":"@vercel/nodemon"       
     }
-    ],
-    "routes":[
-        {
-            "src" : "/(.*)",
-            "dest": "/"
-        }
     ]
 
 
