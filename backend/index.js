@@ -27,6 +27,13 @@ mongoose.connect(process.env.mongodb).then(() => {
 
 
 app.use(cors());
+app.use(cors(
+    {
+      origin: "http://localhost:3000",
+      methods: ["POST", "GET", "DELETE", "PUT"],
+      credentials: true
+    }
+  ));
 app.use(bodyParser.json());
 app.use('/', require('./routes/index'));
 
