@@ -6,11 +6,11 @@ const Signup = () => {
   const [data, setdata] = useState({
     name:'',email:'',password:'',location:''
    })
-
+   const url ='https://temporary-five.vercel.app';
    const navigate= useNavigate();
   const handleSubmit = async(e)=>{
        e.preventDefault();
-       const response = await fetch("http://localhost:5000/users/signup",{
+       const response = await fetch(url+"/users/signup",{
         method: 'POST',
         headers:{
                'Content-Type':'application/json'
@@ -19,7 +19,7 @@ const Signup = () => {
        })
 
        const json = await response.json();
-       console.log(json)
+      //  console.log(json)
 
        if(!json.success){
         alert("Enter valid credentials"); 

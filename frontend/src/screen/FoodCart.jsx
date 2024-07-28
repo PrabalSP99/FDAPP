@@ -22,18 +22,18 @@ import {useCart,useDispatchCart} from '../components/ContextReducer'
     dispatch({type:"REMOVE",index:index})
   }
 
- 
-
 
 
   const handleCheckOut = async()=>{
+
     const stripe = await loadStripe('pk_test_51Nw1jxSCI1FYJohVnri9jjzHQgASJOVXXa67MNwPrWL9XhhBptUEbE0PNUBy5vvKpvOw7xdZcS9mICnDmjxN5GA400QDpgKXcz');
      
     const body={
       products:Data 
    }
-     
-     const response = await fetch("http://localhost:5000/api/create-checkout-session",{
+      const url ='https://temporary-five.vercel.app';
+
+     const response = await fetch(url+"api/create-checkout-session",{
          method: 'POST',
          headers:{
           'Content-Type':'application/json'
@@ -52,9 +52,9 @@ import {useCart,useDispatchCart} from '../components/ContextReducer'
      }
   }
   
-  // useEffect(()=>{
+  // const useEffect(()=>{
   //   handleCheckOut();
-  // },[])
+  // },[]);
  
    let totalPrice = Data.reduce((total, item) => total + item.price, 0)
 
@@ -99,26 +99,3 @@ import {useCart,useDispatchCart} from '../components/ContextReducer'
 }
 
 export default Cart
-
-
-
-
-
- // const loginEmail = localStorage.getItem('userEmail')
-    // Data.map(async(item)=>{
-    //   await fetch('http://localhost:5000/orderdata',{ 
-    //   method :'POST',
-    //   headers: {
-    //           'Content-Type': 'application/json'
-    //         },
-     
-    //   body: JSON.stringify({ email:loginEmail, fdata: item , date: new Date().toDateString()})
-
-    // }).then(()=>{
-    //     dispatch({type:'DROP'})
-      
-    // }).catch((err)=>{
-    //   console.log('error :',err);
-    // })
-     
-    // })

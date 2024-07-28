@@ -4,13 +4,15 @@ import Carousel  from '../components/Carousel'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
 
+const url ='https://temporary-five.vercel.app';
+
 const Home = () => {
     const [foodcat, setfoodcat] = useState([])
     const [fooditem, setfooditem] = useState([])
     const [search, setsearch] = useState('')
 
     const loadData = async () => {
-        let response = await fetch('http://localhost:5000/cart', {
+        let response = await fetch(url+'/cart', {
         
             method: 'GET',
             headers: {
@@ -46,11 +48,11 @@ const Home = () => {
            <div className='bg-purple-50 bg-[url("https://www.transparenttextures.com/patterns/food.png")]'>
             <div className='container'>
                 {
-                    foodcat !== [] ? foodcat.map((data) => {
+                    foodcat !== null ? foodcat.map((data) => {
                         return (<div className='row '>
                             <div key={data._id} className='font-serif text-3xl m-3'> {data.catname} </div>
                             <hr />
-                            {fooditem !== [] ? fooditem.filter((item) => (item.catname === data.catname) && (item.fdname.toLowerCase().includes(search.toLocaleLowerCase()))).map((filteritem) => {
+                            {fooditem !== null ? fooditem.filter((item) => (item.catname === data.catname) && (item.fdname.toLowerCase().includes(search.toLocaleLowerCase()))).map((filteritem) => {
                                 return (<div key={filteritem._id} className='col-12 col-md-6 col-lg-3'>
                                     <Card
                                         item={filteritem}

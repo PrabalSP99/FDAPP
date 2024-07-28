@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 function Login() {
 
+  const url ='https://temporary-five.vercel.app';
   const [data, setdata] = useState({
     email: '', password: ''
   })
@@ -14,7 +15,7 @@ function Login() {
   // render the data to the bckend  //
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/users/login", {
+    const response = await fetch(url+ "/users/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -72,20 +73,3 @@ function Login() {
 
 export default Login;
 
-
-{/* <div classNameName='container'>
-<form onSubmit={handleSubmit} >
- 
-  <div classNameName="mb-3">
-    <label htmlFor="exampleInputEmail1" classNameName="form-label ">Email address</label>
-    <input name='email' value={data.email} onChange={handle} type="email" classNameName="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-    <div id="emailHelp" classNameName="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div classNameName="mb-3">
-    <label htmlFor="exampleInputPassword1" classNameName="form-label">Password</label>
-    <input name='password' value={data.password} onChange={handle} type="password" classNameName="form-control" id="exampleInputPassword1" />
-  </div>
-  <button type="submit" classNameName="m-3 btn btn-success">Login</button>
-  <Link to='/signup' classNameName='m-3 btn btn-danger'> Not a user?</Link>
-</form>
-</div> */}

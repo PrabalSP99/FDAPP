@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from 'react-router-dom'
-import {useCart,useDispatchCart} from '../components/ContextReducer'
+// import {useCart,useDispatchCart} from '../components/ContextReducer'
 
 const Success=()=>{
 

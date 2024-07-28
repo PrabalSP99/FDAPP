@@ -24,7 +24,7 @@ const Card = (props) => {
                 break;
             }
         }
-        if(food!==[]){
+        if(food!== null){
             if(food.size===size){
                 await dispatch({type:'UPDATE', id: props.id, price : finalPrice, qty:qty})
                 return
