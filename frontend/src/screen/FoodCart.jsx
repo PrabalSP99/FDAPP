@@ -22,7 +22,7 @@ import {useCart,useDispatchCart} from '../components/ContextReducer'
     dispatch({type:"REMOVE",index:index})
   }
 
-
+cle
 
   const handleCheckOut = async()=>{
 
